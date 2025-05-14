@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavi Sofra Aile ve Lahmacun Salonu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+            color: #1a237e;
+        }
+        .menu-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .tab {
+            background: #fff;
+            border: 1px solid #1a237e;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            color: #1a237e;
+        }
+        .tab.active {
+            background: #1a237e;
+            color: white;
+        }
+        .menu-category {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .category-title {
+            color: #1a237e;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .item-name {
+            font-weight: 500;
+        }
+        .price {
+            font-weight: 600;
+            color: #1a237e;
+            white-space: nowrap;
+        }
+        .description {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Sipariş Butonu Stili */
+        .order-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .order-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            background-color: #1fba58;
+        }
+
+        .order-button i {
+            font-size: 20px;
+        }
+
+        .order-button span {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .order-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+            }
+            
+            .order-button span {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Mavi Sofra Aile ve Lahmacun Salonu</h1>
+        
+        <div class="menu-tabs">
+            <button class="tab active" data-category="all">Tümü</button>
+            <button class="tab" data-category="mezeler">Mezeler</button>
+            <button class="tab" data-category="cigkofte">Çiğ Köfte & İçli Köfte</button>
+            <button class="tab" data-category="kofteler">Köfteler</button>
+            <button class="tab" data-category="etliyemek">Etli Yemekler & Saç</button>
+            <button class="tab" data-category="karisik">Karnıyarık & Musakka</button>
+            <button class="tab" data-category="kebap">Kebap Çeşitleri</button>
+            <button class="tab" data-category="lahmacun">Pide & Lahmacun</button>
+            <button class="tab" data-category="doner">Döner & İskender</button>
+            <button class="tab" data-category="corba">Çorba & Sulu Yemekler</button>
+            <button class="tab" data-category="tatli">Tatlılar</button>
+            <button class="tab" data-category="salatalar">Salatalar & Yan Lezzetler</button>
+            <button class="tab" data-category="durmeler">Dürümler</button>
+            <button class="tab" data-category="menu">Menü & Özel Paketler</button>
+            <button class="tab" data-category="icecek">İçecekler</button>
+        </div>
+
+        <div class="menu-content">
+            <div class="menu-category" id="mezeler">
+                <h2 class="category-title">Mezeler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">CACIK</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">HAYDARİ</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">YOĞURT</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">EZME SALATA</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-category" id="cigkofte">
+                <h2 class="category-title">Çiğ Köfte & İçli Köfte</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">ÇİĞ KÖFTE</div>
+                        <span class="price">₺250.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">İÇLİ KÖFTE</div>
+                        <span class="price">₺60.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-category" id="kofteler">
+                <h2 class="category-title">Köfteler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">IZGARA KÖFTE</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">YARIM EKMEK KÖFTE</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ÜÇ ÇEYREK KÖFTE</div>
+                        <span class="price">₺180.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TAM EKMEK KÖFTE</div>
+                        <span class="price">₺200.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">DALYAN KÖFTE</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KADIBUDU KÖFTE</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KÖFTE</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-category" id="etliyemek">
+                <h2 class="category-title">Etli Yemekler & Saç</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">TAVUK SOTE</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">MANTARLI ET SOTE</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">CİĞER KAVURMA</div>
+                        <span class="price">₺130.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ARNAVUT CİĞER</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">YÜREK PORSİYON</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">CİĞER</div>
+                        <span class="price">₺350.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">SAC TAVA</div>
+                        <span class="price">₺350.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Karnıyarık & Musakka -->
+            <div class="menu-category" id="karisik">
+                <h2 class="category-title">Karnıyarık & Musakka</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">PATLICAN KEBAP</div>
+                        <span class="price">₺350.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">PATLICAN MUSAKKA</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Kebap Çeşitleri -->
+            <div class="menu-category" id="kebap">
+                <h2 class="category-title">Kebap Çeşitleri</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">ADANA KEBAP</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">URFA KEBAP</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ŞAŞLIK (ÇÖP ŞİŞ)</div>
+                        <span class="price">₺350.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KUZU ŞİŞ</div>
+                        <span class="price">₺350.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TAVUK ŞİŞ</div>
+                        <span class="price">₺275.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ALİ NAZİK ŞİŞTEN</div>
+                        <span class="price">₺350.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KARIŞIK KEBAP</div>
+                        <span class="price">₺600.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">SARAY KEBAP</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ÇİFLİK KEBAP</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">HAŞLAMA</div>
+                        <span class="price">₺250.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TAVUK HAŞLAMA</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KANAT (Yarım Kilo)</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KANAT (1 KG)</div>
+                        <span class="price">₺550.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KANAT (Yaprak)</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Pide & Lahmacun -->
+            <div class="menu-category" id="lahmacun">
+                <h2 class="category-title">Pide & Lahmacun</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">KLASİK LAHMACUN</div>
+                        <span class="price">₺80.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ACISIZ LAHMACUN</div>
+                        <span class="price">₺80.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ÖZEL LAHMACUN</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">FINDIK LAHMACUN</div>
+                        <span class="price">₺60.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">EVCİL LAHMACUN</div>
+                        <span class="price">₺20.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KARIŞIK PİDE</div>
+                        <span class="price">₺280.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KAŞARLI PİDE</div>
+                        <span class="price">₺240.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KUŞBAŞILI PİDE</div>
+                        <span class="price">₺280.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KIYMALI PİDE</div>
+                        <span class="price">₺240.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">SUCUKLU KAŞARLI PİDE</div>
+                        <span class="price">₺240.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KAŞARLI SUCUK YUMURTA PİDE</div>
+                        <span class="price">₺250.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KUŞBAŞI KAŞARLI PİDE</div>
+                        <span class="price">₺280.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KIYMALI KAŞARLI PİDE</div>
+                        <span class="price">₺250.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KAŞARLI YUMURTALI PİDE</div>
+                        <span class="price">₺230.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KAVURMALI KAŞAR YUMURTA</div>
+                        <span class="price">₺300.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Döner & İskender -->
+            <div class="menu-category" id="doner">
+                <h2 class="category-title">Döner & İskender</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">ISKENDER</div>
+                        <span class="price">₺325.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TAM EKMEK DÖNER</div>
+                        <span class="price">₺200.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">YARIM EKMEK DÖNER</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Çorba & Sulu Yemekler -->
+            <div class="menu-category" id="corba">
+                <h2 class="category-title">Çorba & Sulu Yemekler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">TARHANA / SÜZME MERCİMEK</div>
+                        <span class="price">₺80.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">EZOGELİN</div>
+                        <span class="price">₺80.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TAVUK SUYU ÇORBA</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">NOHUT</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KURU FASULYE</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">BİBER DOLMA</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">BULGUR PİLAV</div>
+                        <span class="price">₺60.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">PİLAV</div>
+                        <span class="price">₺60.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">MAKARNA</div>
+                        <span class="price">₺60.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tatlılar -->
+            <div class="menu-category" id="tatli">
+                <h2 class="category-title">Tatlılar</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">KADAYIF</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KÜNEFE</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Salatalar & Yan Lezzetler -->
+            <div class="menu-category" id="salatalar">
+                <h2 class="category-title">Salatalar & Yan Lezzetler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">ÇOBAN SALATA</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">YEŞİL SALATA</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">PIRASA</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ISPANAK</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">BİBER DOLMA</div>
+                        <span class="price">₺120.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Dürümler -->
+            <div class="menu-category" id="durmeler">
+                <h2 class="category-title">Dürümler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">ADANA DÜRÜM</div>
+                        <span class="price">₺170.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">URFA DÜRÜM</div>
+                        <span class="price">₺170.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TAVUK ŞİŞ DÜRÜM</div>
+                        <span class="price">₺150.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KUZU ŞİŞ DÜRÜM</div>
+                        <span class="price">₺180.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ÇÖP ŞİŞ DÜRÜM</div>
+                        <span class="price">₺180.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">CİĞER DÜRÜM</div>
+                        <span class="price">₺180.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">YÜREK DÜRÜM</div>
+                        <span class="price">₺160.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">CİĞER KAVURMA DÜRÜM</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Menü & Özel Paketler -->
+            <div class="menu-category" id="menu">
+                <h2 class="category-title">Menü & Özel Paketler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">TABİLOT 1</div>
+                        <span class="price">₺225.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TABİLOT 2</div>
+                        <span class="price">₺175.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">TABİLOT 3</div>
+                        <span class="price">₺200.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">RAMAZAN MENÜSÜ</div>
+                        <span class="price">₺750.00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- İçecekler -->
+            <div class="menu-category" id="icecek">
+                <h2 class="category-title">İçecekler</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="item-name">SU</div>
+                        <span class="price">₺10.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">COCA COLA</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">COLA ZERO</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KUTU FANTA</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">SPRITE</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ACISIZ ŞALGAM</div>
+                        <span class="price">₺40.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ACİLİ ŞALGAM</div>
+                        <span class="price">₺40.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">KUTU PEPSİ</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ŞİŞE KOLA</div>
+                        <span class="price">₺40.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">ŞİŞE FANTA</div>
+                        <span class="price">₺40.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">1 LT PEPSİ</div>
+                        <span class="price">₺80.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">2,5 LT PEPSİ</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">1 LT FANTA</div>
+                        <span class="price">₺70.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">2,5 LT FANTA</div>
+                        <span class="price">₺100.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-name">MEYVE SUYU</div>
+                        <span class="price">₺50.00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sipariş Butonu -->
+    <a href="tel:+905555555555" class="order-button">
+        <i class="fas fa-phone"></i>
+        <span>Sipariş Ver</span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const menuCategories = document.querySelectorAll('.menu-category');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+
+                    const category = tab.getAttribute('data-category');
+                    
+                    // Show/hide relevant categories
+                    menuCategories.forEach(cat => {
+                        if (category === 'all' || cat.id === category) {
+                            cat.style.display = 'block';
+                        } else {
+                            cat.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
